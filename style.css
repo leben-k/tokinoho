@@ -56,3 +56,4 @@ h2.pg{font-size:1.4rem;border-bottom:4px solid var(--main);padding-bottom:4px}
 .back{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:24px 0 8px}
 .btn{display:inline-block;padding:12px 22px;background:var(--main);color:#fff;text-decoration:none;border-radius:8px;font-weight:800}
 html{scroll-behavior:smooth}
+#pageinfo{font-size:.9rem;margin-left:10px;color:#000}
