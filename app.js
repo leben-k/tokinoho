@@ -1,6 +1,6 @@
 /* ===== 設定 ===== */
 // スプレッドシートを「ウェブに公開」(CSV) したURLをここに貼ってください
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQzneVivgGswej-cvMVhA-Am-HakTOkLC7oS7ck399CP0v0txFFO8UEHYc2fgMGBYK0QNf9ExbJhLH5/pub?gid=305737761&single=true&output=csv";
+const SHEET_CSV_URL = "";
 const PER_PAGE = 10;
 // 列の順番: 日付 / 見出し / 本文 / 出典URL
 const PALETTE = ["#b91c1c","#1d4ed8","#047857","#c2410c","#7e22ce","#0e7490","#be185d"];
@@ -33,10 +33,10 @@ function render(){
  const list=document.getElementById("list"),n=Math.ceil(view.length/PER_PAGE)||1;
  document.getElementById("count").textContent=view.length+"件の解説";
  list.innerHTML=view.slice((page-1)*PER_PAGE,page*PER_PAGE).map((x,k)=>{const col=colorOf((page-1)*PER_PAGE+k);
-  return `<details id="${x.id}" style="--c:${col};--t:${tint(col)}"><summary>${esc(x.h)}<small>${esc(x.d)}</small></summary><div class="body">${esc(x.b)}${x.u?`<a class="src" href="${esc(x.u)}" target="_blank" rel="noopener">出典・参考リンク</a>`:""}</div></details>`}).join("")||"<p>該当する解説はありません。</p>";
+  return `<details id="${x.id}" style="--c:${col};--t:${tint(col)}"><summary><span class="chip">見出し</span>${esc(x.h)}<small>${esc(x.d)}</small></summary><div class="body"><div class="lbl">本文</div>${esc(x.b)}${x.u?`<a class="src" href="${esc(x.u)}" target="_blank" rel="noopener">出典・参考リンク</a>`:""}</div></details>`}).join("")||"<p>該当する解説はありません。</p>";
  const p=document.getElementById("pager");p.innerHTML="";
  if(n>1)for(let i=1;i<=n;i++){const b=document.createElement("button");b.textContent=i;if(i==page)b.className="on";b.onclick=()=>{page=i;render();scrollTo(0,0)};p.appendChild(b)}
 }
 async function counter(){const el=document.getElementById("counter");if(!el)return;
  try{const r=await fetch("https://api.counterapi.dev/v1/leben-k-tokinoho/visits/up");const j=await r.json();el.textContent=Number(j.count).toLocaleString()}catch(e){el.textContent="--"}}
-document.addEventListener("DOMContentLoaded",()=>{counter();if(document.getElementById("list")){document.getElementById("q").addEventListener("input",apply);load()}});
+document.addEventListener("DOMContentLoaded",()=>{counter();const hb=document.getElementById("homebtn");if(hb&&document.getElementById("list"))hb.addEventListener("click",e=>{e.preventDefault();document.getElementById("q").value="";apply();history.replaceState(null,"",location.pathname);scrollTo(0,0)});if(document.getElementById("list")){document.getElementById("q").addEventListener("input",apply);load()}});

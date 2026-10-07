@@ -46,3 +46,13 @@ h2.pg{font-size:1.4rem;border-bottom:4px solid var(--main);padding-bottom:4px}
 .peace{display:flex;justify-content:center;gap:28px;background:#dbeafe;padding:8px 0;border-bottom:2px solid var(--line)}
 .peace img{width:120px;height:110px;object-fit:cover;object-position:top}
 @media(min-width:1150px){.peace{display:none}}
+.search label{display:block;font-weight:800;font-size:1.1rem}
+.search p{margin:4px 0 8px;font-weight:600}
+.search input{width:100%;font-size:1rem;padding:10px;border:2px solid var(--line);border-radius:8px;color:#000;font-weight:600}
+.search input::placeholder{color:#333;opacity:1}
+.hint{margin:0 0 10px;font-weight:700}
+.chip{display:inline-block;background:var(--c);color:#fff;font-size:.72rem;padding:0 8px;border-radius:10px;margin-right:8px;vertical-align:2px;font-weight:800}
+.lbl{display:block;width:fit-content;background:#334155;color:#fff;font-size:.72rem;font-weight:800;padding:0 8px;border-radius:10px;margin-bottom:6px}
+.back{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:24px 0 8px}
+.btn{display:inline-block;padding:12px 22px;background:var(--main);color:#fff;text-decoration:none;border-radius:8px;font-weight:800}
+html{scroll-behavior:smooth}
