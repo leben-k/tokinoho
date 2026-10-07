@@ -1,6 +1,6 @@
 /* ===== 設定 ===== */
 // スプレッドシートを「ウェブに公開」(CSV) したURLをここに貼ってください
-const SHEET_CSV_URL = "";
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQzneVivgGswej-cvMVhA-Am-HakTOkLC7oS7ck399CP0v0txFFO8UEHYc2fgMGBYK0QNf9ExbJhLH5/pub?gid=305737761&single=true&output=csv";
 const PER_PAGE = 10;
 // 列の順番: 日付 / 見出し / 本文 / 出典URL
 const PALETTE = ["#b91c1c","#1d4ed8","#047857","#c2410c","#7e22ce","#0e7490","#be185d"];
