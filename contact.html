@@ -17,14 +17,33 @@
 <p><b>運営者への連絡は下記連絡フォームをご利用ください。</b></p>
 <p>運営は地域情報室です。地域情報室は自主運営につき、現在の世情（実情）から個人情報は記載していません。</p>
 <p class="warn">注意：連絡フォームを利用して、広告、宣伝、登録加入を促すものを送信することはご遠慮ください。</p>
-<form action="https://formspree.io/f/xeaowndg" method="POST" class="box">
+<div class="box flow"><h2>送信したあとの流れ</h2>
+<ol>
+<li>入力して「送信する」を押すと、このページに<b>「送信が完了しました」</b>と表示されます。</li>
+<li>確認のため「ロボットではありません」などの画面が出た場合は、画面の案内に従ってください。その後に表示される完了画面では、<b>「Go back（戻る）」</b>を押すか、ブラウザの戻るボタンでこのサイトに戻れます。</li>
+<li>完了後は<b>「ホームへ戻る」</b>ボタンでトップページに戻れます。続けて別の内容を送ることもできます。</li>
+<li>お返事は、入力いただいたメールアドレスにお送りします。内容によってはお返事できない場合があります。</li>
+</ol></div>
+<form id="cform" action="https://formspree.io/f/xeaowndg" method="POST" class="box">
 <input type="hidden" name="_subject" id="subj" value="【時の法】連絡フォームより"><input type="hidden" name="サイト" value="時の法（https://leben-k.github.io/tokinoho/）">
 <label for="n">お名前</label><input id="n" name="name" required>
 <label for="m">あなたのメールアドレス</label><input id="m" type="email" name="email" required>
 <label for="s">表題（〇〇〇について）</label><input id="s" name="subject" placeholder="〇〇〇について" required>
 <label for="c">内容</label><textarea id="c" name="message" required></textarea>
 <button type="submit">送信する</button></form>
-<script>document.querySelector("form").addEventListener("submit",function(){document.getElementById("subj").value="【時の法】"+document.getElementById("s").value})</script><div class="back"><a class="btn" href="#top">▲ このページの先頭へ</a><a class="btn" id="homebtn" href="./">🏠 ホームへ</a></div>
+<div id="done" class="box done" hidden><h2>✅ 送信が完了しました</h2>
+<p>お問い合わせありがとうございました。内容は運営者に届きました。お返事は、入力いただいたメールアドレスにお送りします。</p>
+<div class="back"><a class="btn" href="./">🏠 ホームへ戻る</a><a class="btn sub" href="contact.html">✉ 別の内容を送る</a></div></div>
+<p id="err" class="warn" hidden>送信できませんでした。通信環境を確認して、もう一度「送信する」を押してください。</p>
+<script>
+(function(){var f=document.getElementById("cform"),done=document.getElementById("done"),err=document.getElementById("err"),btn=f.querySelector("button");
+f.addEventListener("submit",function(e){document.getElementById("subj").value="【時の法】"+document.getElementById("s").value;
+ if(!window.fetch)return; e.preventDefault(); err.hidden=true; btn.disabled=true; btn.textContent="送信中…";
+ fetch(f.action,{method:"POST",body:new FormData(f),headers:{Accept:"application/json"}}).then(function(r){
+  if(r.ok){f.hidden=true;document.querySelector(".flow").hidden=true;done.hidden=false;done.scrollIntoView({behavior:"smooth",block:"center"})}
+  else{f.submit()}
+ }).catch(function(){err.hidden=false;btn.disabled=false;btn.textContent="送信する"})});})();
+</script><div class="back"><a class="btn" href="#top">▲ このページの先頭へ</a><a class="btn" id="homebtn" href="./">🏠 ホームへ</a></div>
 </div></main>
 <footer><p>運営：地域情報室</p>
 <p><a href="./">ホーム</a>｜<a href="contact.html">連絡先</a>｜<a href="privacy.html">プライバシーポリシー</a></p>
