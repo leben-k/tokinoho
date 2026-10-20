@@ -164,8 +164,8 @@ ${x.src ? `<p><a class="src" href="${esc(x.src)}" target="_blank" rel="noopener"
 </article>
 <p class="warn">掲載内容は一般的な情報提供であり、個別の法的助言ではありません。</p>
 <nav class="pn" aria-label="前後の記事">
-${next ? `<a class="pn-prev" href="${next.slug}.html"><small>← 新しい記事</small>${esc(next.title)}</a>` : "<span></span>"}
-${prev ? `<a class="pn-next" href="${prev.slug}.html"><small>古い記事 →</small>${esc(prev.title)}</a>` : "<span></span>"}
+${prev ? `<a class="pn-prev" href="${prev.slug}.html"><small>← 前の記事</small>${esc(prev.title)}</a>` : "<span></span>"}
+${next ? `<a class="pn-next" href="${next.slug}.html"><small>後の記事 →</small>${esc(next.title)}</a>` : "<span></span>"}
 </nav>
 <div class="back"><a class="btn" href="#top">▲ このページの先頭へ</a><a class="btn" href="../">🏠 記事一覧へ</a></div>
 </div></main>
