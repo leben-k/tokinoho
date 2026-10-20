@@ -80,4 +80,5 @@ nav .crumb{color:#334155;font-weight:700}
 .pn a{display:block;background:#fff;border:2px solid var(--line);border-radius:10px;padding:10px 12px;text-decoration:none;color:#0b3d91;line-height:1.5}
 .pn a small{display:block;color:#000;font-size:.8rem}
 .pn-next{text-align:right}
-@media(max-width:520px){.pn{grid-template-columns:1fr}.pn-next{text-align:left}}
+.pn-next small{text-align:right}
+@media(max-width:520px){.pn{grid-template-columns:1fr}}
