@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://leben-k.github.io/tokinoho/</loc><lastmod>2026-10-07</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
-  <url><loc>https://leben-k.github.io/tokinoho/articles/settou.html</loc><lastmod>2026-10-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://leben-k.github.io/tokinoho/articles/meiyokison.html</loc><lastmod>2026-10-06</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/</loc><lastmod>2026-10-16</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/syuki.html</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/kiken.html</loc><lastmod>2026-10-16</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/koukin.html</loc><lastmod>2026-10-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/kizyun.html</loc><lastmod>2026-10-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/syutoku.html</loc><lastmod>2026-10-10</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/kyuto.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/yohane.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/dabosu.html</loc><lastmod>2026-10-09</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/houdo.html</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/sozei.html</loc><lastmod>2026-10-08</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://leben-k.github.io/tokinoho/articles/dokusen.html</loc><lastmod>2026-10-07</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://leben-k.github.io/tokinoho/contact.html</loc><lastmod>2026-10-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
   <url><loc>https://leben-k.github.io/tokinoho/privacy.html</loc><lastmod>2026-10-07</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
 </urlset>
