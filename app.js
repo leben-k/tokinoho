@@ -23,9 +23,31 @@ function render() {
     p.appendChild(b);
   }
 }
+/* 検索用に文字をそろえる：全角英数→半角、大文字→小文字、カタカナ→ひらがな、空白を除く */
+function norm(s) {
+  return String(s || "").normalize("NFKC").toLowerCase()
+    .replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0) - 0x60))
+    .replace(/\s+/g, "");
+}
+/* 1記事ぶんの検索対象＝見出し＋日付＋本文（「見出し」「本文」などの飾り文字は除く） */
+function searchText(d) {
+  const h = d.querySelector("summary h3"), date = d.querySelector("summary small"), body = d.querySelector(".body");
+  let t = (h ? h.textContent : "") + " " + (date ? date.textContent : "");
+  if (body) {
+    const c = body.cloneNode(true);
+    c.querySelectorAll(".lbl,.more,.src").forEach(e => e.remove());
+    t += " " + c.textContent;
+  }
+  return norm(t);
+}
+let lastQ = null;
 function apply() {
-  const q = (document.getElementById("q").value || "").trim().toLowerCase();
-  view = q ? all.filter(d => d.textContent.toLowerCase().includes(q)) : all.slice();
+  const raw = document.getElementById("q").value || "";
+  // 空白（全角スペースも）で区切った言葉を、すべて含む記事を表示
+  const words = raw.normalize("NFKC").split(/\s+/).map(norm).filter(Boolean);
+  const key = words.join(" ");
+  if (key === lastQ) return; lastQ = key;
+  view = words.length ? all.filter(d => words.every(w => d._s.includes(w))) : all.slice();
   page = 1; render();
 }
 function openHash() {
@@ -42,9 +64,13 @@ document.addEventListener("DOMContentLoaded", () => {
   counter();
   const list = document.getElementById("list"); if (!list) return;
   all = [...list.querySelectorAll("details")];
-  document.getElementById("q").addEventListener("input", apply);
+  all.forEach(d => { d._s = searchText(d) });
+  const q = document.getElementById("q");
+  // 日本語入力の確定・×ボタンでの消去・貼り付けでも確実に検索する
+  ["input", "compositionend", "change", "search", "keyup"].forEach(ev => q.addEventListener(ev, apply));
+  q.closest("form")?.addEventListener("submit", e => { e.preventDefault(); apply() });
   const hb = document.getElementById("homebtn");
-  if (hb) hb.addEventListener("click", e => { e.preventDefault(); document.getElementById("q").value = ""; apply(); history.replaceState(null, "", location.pathname); scrollTo(0, 0) });
+  if (hb) hb.addEventListener("click", e => { e.preventDefault(); document.getElementById("q").value = ""; lastQ = null; apply(); history.replaceState(null, "", location.pathname); scrollTo(0, 0) });
   apply(); openHash();
   addEventListener("hashchange", openHash);
 });
